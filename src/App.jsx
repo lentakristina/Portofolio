@@ -33,7 +33,7 @@ const LoadingScreen = ({ onComplete }) => {
   return (
     <div className="fixed inset-0 bg-gradient-to-br from-purple-900 via-pink-800 to-orange-700 z-50 flex items-center justify-center">
       <div className="text-center">
-        <div className="text-6xl font-bold text-white mb-8 animate-bounce">LK</div>
+        <div className="text-6xl font-bold text-white mb-8 animate-bounce">Welcome</div>
         <div className="w-64 h-2 bg-white/20 rounded-full overflow-hidden">
           <div 
             className="h-full bg-gradient-to-r from-yellow-300 via-pink-300 to-purple-300 transition-all duration-300"

@@ -4,9 +4,10 @@ export const personalInfo = {
   fullName: "Lenta Kristina Sianturi",
   title: "Web Developer",
   tagline: "Building full-stack applications with Laravel, React, and PostgreSQL. Passionate about creating modern, efficient digital solutions! 🚀",
+  photo: "/photo.png",
   location: "Yogyakarta, Indonesia",
   phone: "085183380512",
-  email: "lentakristina512@gmail.com",
+  instagram: "https://www.instagram.com/lentakristinaa",
   github: "https://github.com/lentakristina",
   linkedin: "#", // Update with your LinkedIn URL
   resume: "/CV.pdf" // Place your resume in public folder
@@ -40,7 +41,7 @@ export const projects = [
     ],
     color: "from-blue-500 to-cyan-500",
     github: "https://github.com/lentakristina", // Update if you want to upload skripsi code
-    demo: "#" // No live demo since project is no longer accessible
+    document: "/Skripsi.pdf"
   }
 ];
 
