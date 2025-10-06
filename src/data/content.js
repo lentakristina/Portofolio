@@ -2,14 +2,14 @@
 export const personalInfo = {
   name: "Lenta Kristina",
   fullName: "Lenta Kristina Sianturi",
-  title: "Entry-Level Web Developer",
+  title: "Web Developer",
   tagline: "Building full-stack applications with Laravel, React, and PostgreSQL. Passionate about creating modern, efficient digital solutions! 🚀",
   location: "Yogyakarta, Indonesia",
   phone: "085183380512",
   email: "lentakristina512@gmail.com",
   github: "https://github.com/lentakristina",
   linkedin: "#", // Update with your LinkedIn URL
-  resume: "/resume.pdf" // Place your resume in public folder
+  resume: "/CV.pdf" // Place your resume in public folder
 };
 
 // Projects Data
@@ -25,22 +25,22 @@ export const projects = [
       "Glassmorphism design system"
     ],
     color: "from-purple-500 to-pink-500",
-    github: "#", // Add your GitHub repo link
-    demo: "#" // Add live demo link
+    github: "hhttps://github.com/lentakristina/Finance", // Update with actual repo if available
+    demo: "https://finance-ashen-psi.vercel.app/"
   },
   {
-    title: "Leave Application System",
+    title: "Web-based Leave Application System (Skripsi)",
     period: "Feb 2023 - Jul 2023",
     tech: ["Laravel", "MySQL", "JavaScript", "Figma"],
-    description: "HR management system digitalizing leave requests and approvals with role-based access control.",
+    description: "HR management system digitalizing leave requests and approvals with role-based access control. Final year thesis project.",
     highlights: [
       "SDLC methodology implementation",
       "Black-box testing procedures",
       "Figma prototyping workflow"
     ],
     color: "from-blue-500 to-cyan-500",
-    github: "#",
-    demo: "#"
+    github: "https://github.com/lentakristina", // Update if you want to upload skripsi code
+    demo: "#" // No live demo since project is no longer accessible
   }
 ];
 

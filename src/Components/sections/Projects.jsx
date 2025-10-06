@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Code } from 'lucide-react';
+import { Code, ExternalLink, Github } from 'lucide-react';
 
 export default function Projects() {
   const [filter, setFilter] = useState('All');
@@ -14,7 +14,9 @@ export default function Projects() {
       tech: ['Laravel', 'React', 'PostgreSQL', 'Recharts'],
       features: ['RESTful APIs', 'CRUD Operations', 'Interactive Dashboards', 'Glassmorphism UI'],
       color: 'from-blue-400 to-cyan-400',
-      icon: '💰'
+      icon: '💰',
+      liveUrl: 'https://finance-ashen-psi.vercel.app/',
+      githubUrl: 'https://github.com/lentakristina/Finance'
     },
     {
       id: 2,
@@ -24,7 +26,8 @@ export default function Projects() {
       tech: ['Laravel', 'MySQL', 'JavaScript', 'Figma'],
       features: ['Role-Based Auth', 'Workflow Automation', 'Black-box Testing', 'SDLC Methodology'],
       color: 'from-purple-400 to-pink-400',
-      icon: '📋'
+      icon: '📋',
+      documentUrl: '#contact'
     }
   ];
 
@@ -90,7 +93,7 @@ export default function Projects() {
                 </div>
               </div>
 
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-2 mb-6">
                 {project.tech.map((tech, idx) => (
                   <span 
                     key={idx}
@@ -100,10 +103,51 @@ export default function Projects() {
                   </span>
                 ))}
               </div>
+
+              {/* ACTION BUTTONS */}
+              <div className="flex flex-wrap gap-3 pt-4 border-t border-gray-200">
+                {project.liveUrl && (
+                  <a
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-purple-600
+                     to-pink-600 text-white rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-300"
+                  >
+                    <ExternalLink size={18} />
+                    Live Demo
+                  </a>
+                )}
+                
+                {project.githubUrl && (
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 px-5 py-2.5 bg-gray-800 text-white rounded-full font-semibold hover:bg-gray-900 hover:shadow-lg transform hover:scale-105 transition-all duration-300"
+                  >
+                    <Github size={18} />
+                    GitHub
+                  </a>
+                )}
+                
+                {project.documentUrl && (
+                  <a
+                    href={project.documentUrl}
+                    className="flex items-center gap-2 px-5 py-2.5 border-2 border-purple-600 text-purple-600 rounded-full font-semibold hover:bg-purple-600 hover:text-white transform hover:scale-105 transition-all duration-300"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
+                      <polyline points="14 2 14 8 20 8"/>
+                    </svg>
+                    View Document
+                  </a>
+                )}
+              </div>
             </div>
           ))}
         </div>
       </div>
     </section>
   );
-};
+}
