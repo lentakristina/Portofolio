@@ -27,7 +27,12 @@ export const projects = [
     ],
     color: "from-purple-500 to-pink-500",
     github: "hhttps://github.com/lentakristina/Finance", // Update with actual repo if available
-    demo: "https://finance-ashen-psi.vercel.app/"
+    demo: "https://finance-ashen-psi.vercel.app/",
+     screenshots: [
+      { name: 'Dashboard', url: '/dashboard.png' },
+      { name: 'Transactions', url: '/transaction.png' },
+      { name: 'Goals', url: '/goals.png' }
+    ]
   },
   {
     title: "Web-based Leave Application System (Skripsi)",
@@ -41,7 +46,13 @@ export const projects = [
     ],
     color: "from-blue-500 to-cyan-500",
     github: "https://github.com/lentakristina", // Update if you want to upload skripsi code
-    document: "/Skripsi.pdf"
+    document: "/Skripsi.pdf",
+    screenshots: [
+        { name: 'Kadiv Mengelola Akun', url: '/kadiv.jpg' },
+        { name: 'Pegawai Mengajukan Cuti', url: '/user.jpg' },
+        { name: 'Validasi Kadiv', url: '/kadiv2.jpg' },
+        { name: 'Validasi Pimpinan', url: '/pimpinan.jpg' }
+      ],
   }
 ];
 
