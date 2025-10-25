@@ -24,7 +24,7 @@ export default function Projects() {
         { name: 'Transactions', url: '/transactions.png' },
         { name: 'Goals', url: '/goals.png' }
       ],
-      liveUrl: 'https://finance-ashen-psi.vercel.app/',
+      liveUrl: 'https://finance-frontend-murex.vercel.app/login',
       githubUrl: 'https://github.com/lentakristina/Finance'
     },
     {
@@ -141,10 +141,8 @@ const getVisibleScreenshots = (screenshots, projectId) => {
                       <span className="truncate">{project.liveUrl || 'localhost:3000'}</span>
                     </div>
                   </div>
-                  
-                 {/* Screenshot Carousel */}
+                
 <div className="relative">
-  {/* Navigation Arrows - Only show if more than 3 screenshots */}
   {project.screenshots.length > 3 && (
     <>
       <button

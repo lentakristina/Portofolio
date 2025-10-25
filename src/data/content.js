@@ -27,7 +27,7 @@ export const projects = [
     ],
     color: "from-purple-500 to-pink-500",
     github: "hhttps://github.com/lentakristina/Finance", // Update with actual repo if available
-    demo: "https://finance-ashen-psi.vercel.app/",
+    demo: "https://finance-frontend-murex.vercel.app/login",
      screenshots: [
       { name: 'Dashboard', url: '/dashboard.png' },
       { name: 'Transactions', url: '/transaction.png' },
