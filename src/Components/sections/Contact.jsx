@@ -1,97 +1,136 @@
 import { useState } from 'react';
-import { Mail, Phone, MapPin, Send, CheckCircle } from 'lucide-react';
+import { Mail, Send } from 'lucide-react';
 
-export default function Skills() {
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
-  const [showSuccess, setShowSuccess] = useState(false);
+export default function Contact() {
+  const [formData, setFormData] = useState({ 
+    name: '', 
+    email: '', 
+    message: '' 
+  });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setShowSuccess(true);
-    setTimeout(() => {
-      setShowSuccess(false);
-      setFormData({ name: '', email: '', message: '' });
-    }, 3000);
+    alert('Message sent! (Demo)');
+    setFormData({ name: '', email: '', message: '' });
+  };
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
   };
 
   return (
-    <section id="contact" className="py-20 bg-gradient-to-br from-purple-100 via-pink-100 to-orange-100">
+    <section id="contact" className="py-20 bg-gradient-to-br from-[#B8B8AA]/20 to-[#DDD5D0]/30">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-            Let's Work Together!
+        <div className="text-center mb-16">
+          <div className="inline-block mb-4">
+            <Mail className="w-12 h-12 text-[#7F9183] animate-pulse" />
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-[#586F6B] to-[#7F9183] bg-clip-text text-transparent">
+            Get In Touch
           </h2>
-          <p className="text-gray-600 text-lg">Have a project in mind? Let's create something amazing!</p>
+          <p className="text-[#586F6B]/70 text-lg">Let's work together on your next project</p>
         </div>
 
-        <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-2xl">
+        <form onSubmit={handleSubmit} className="bg-white rounded-3xl p-8 shadow-2xl border-2 border-[#DDD5D0]/50">
           <div className="space-y-6">
             <div>
-              <label className="block text-gray-700 font-semibold mb-2">Name</label>
+              <label htmlFor="name" className="block text-[#586F6B] font-semibold mb-2">
+                Name
+              </label>
               <input
                 type="text"
+                id="name"
+                name="name"
                 value={formData.name}
-                onChange={(e) => setFormData({...formData, name: e.target.value})}
-                className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-all duration-300"
+                onChange={handleChange}
+                className="w-full px-4 py-3 rounded-xl border-2 border-[#B8B8AA]/30 focus:border-[#7F9183] focus:outline-none transition-colors bg-[#DDD5D0]/10 text-[#586F6B]"
                 placeholder="Your name"
+                required
               />
             </div>
 
             <div>
-              <label className="block text-gray-700 font-semibold mb-2">Email</label>
+              <label htmlFor="email" className="block text-[#586F6B] font-semibold mb-2">
+                Email
+              </label>
               <input
                 type="email"
+                id="email"
+                name="email"
                 value={formData.email}
-                onChange={(e) => setFormData({...formData, email: e.target.value})}
-                className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-all duration-300"
+                onChange={handleChange}
+                className="w-full px-4 py-3 rounded-xl border-2 border-[#B8B8AA]/30 focus:border-[#7F9183] focus:outline-none transition-colors bg-[#DDD5D0]/10 text-[#586F6B]"
                 placeholder="your.email@example.com"
+                required
               />
             </div>
 
             <div>
-              <label className="block text-gray-700 font-semibold mb-2">Message</label>
+              <label htmlFor="message" className="block text-[#586F6B] font-semibold mb-2">
+                Message
+              </label>
               <textarea
+                id="message"
+                name="message"
                 value={formData.message}
-                onChange={(e) => setFormData({...formData, message: e.target.value})}
-                className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-all duration-300 h-32"
+                onChange={handleChange}
+                rows="5"
+                className="w-full px-4 py-3 rounded-xl border-2 border-[#B8B8AA]/30 focus:border-[#7F9183] focus:outline-none transition-colors resize-none bg-[#DDD5D0]/10 text-[#586F6B]"
                 placeholder="Tell me about your project..."
+                required
               />
             </div>
 
             <button
-              onClick={handleSubmit}
-              className="w-full py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-xl font-semibold hover:shadow-2xl transform hover:scale-[1.02] transition-all duration-300 flex items-center justify-center gap-2"
+              type="submit"
+              className="w-full py-4 bg-gradient-to-r from-[#586F6B] to-[#7F9183] text-white rounded-xl font-bold text-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2"
             >
-              <Send size={20} />
               Send Message
+              <Send size={20} />
             </button>
           </div>
+        </form>
 
-          {showSuccess && (
-            <div className="mt-6 p-4 bg-green-50 border-2 border-green-500 rounded-xl text-green-700 text-center font-semibold flex items-center justify-center gap-2">
-              <CheckCircle size={24} />
-              Message sent successfully! I'll get back to you soon!
+        <div className="grid md:grid-cols-3 gap-6 mt-12">
+          <div className="bg-white rounded-2xl p-6 text-center shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-[#DDD5D0]/50">
+            <div className="w-12 h-12 bg-gradient-to-r from-[#7F9183] to-[#586F6B] rounded-full flex items-center justify-center mx-auto mb-3">
+              <Mail className="text-white" size={24} />
             </div>
-          )}
+            <h4 className="font-semibold text-[#586F6B] mb-1">Email</h4>
+            <a href="mailto:lentakristina512@gmail.com" className="text-[#7F9183] text-sm hover:underline">
+              lentakristina512@gmail.com
+            </a>
+          </div>
 
-          <div className="mt-8 pt-8 border-t-2 border-gray-200">
-            <div className="grid md:grid-cols-3 gap-4 text-center">
-              <a href="mailto:lentakristina512@gmail.com" className="p-4 bg-purple-50 rounded-xl hover:bg-purple-100 transition-colors">
-                <Mail className="mx-auto mb-2 text-purple-600" size={24} />
-                <p className="text-sm font-semibold text-gray-700">lentakristina512@gmail.com</p>
-              </a>
-              <a href="tel:085183380512" className="p-4 bg-pink-50 rounded-xl hover:bg-pink-100 transition-colors">
-                <Phone className="mx-auto mb-2 text-pink-600" size={24} />
-                <p className="text-sm font-semibold text-gray-700">085183380512</p>
-              </a>
-              <div className="p-4 bg-orange-50 rounded-xl">
-                <MapPin className="mx-auto mb-2 text-orange-600" size={24} />
-                <p className="text-sm font-semibold text-gray-700">Yogyakarta, Indonesia</p>
-              </div>
+          <div className="bg-white rounded-2xl p-6 text-center shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-[#DDD5D0]/50">
+            <div className="w-12 h-12 bg-gradient-to-r from-[#7F9183] to-[#586F6B] rounded-full flex items-center justify-center mx-auto mb-3">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
             </div>
+            <h4 className="font-semibold text-[#586F6B] mb-1">Phone</h4>
+            <a href="tel:085183380512" className="text-[#7F9183] text-sm hover:underline">
+              +62 851-8338-0512
+            </a>
+          </div>
+
+          <div className="bg-white rounded-2xl p-6 text-center shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-[#DDD5D0]/50">
+            <div className="w-12 h-12 bg-gradient-to-r from-[#7F9183] to-[#586F6B] rounded-full flex items-center justify-center mx-auto mb-3">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+            </div>
+            <h4 className="font-semibold text-[#586F6B] mb-1">Location</h4>
+            <p className="text-[#7F9183] text-sm">
+              Jakarta, Indonesia
+            </p>
           </div>
         </div>
       </div>
     </section>
   );
-};
+}
